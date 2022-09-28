@@ -1,0 +1,213 @@
+<br>
+<div class="card">
+    <h5 class="card-header card-header-color">Angular Crud Application</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="registerForm">
+           
+            <div class="row mb-3">
+
+
+                <div class="form-group col 2">
+                    <label>First Name</label>
+
+                    <input type="text" placeholder="please enter the first name " id="firstname" name="firstname" class="form-control"
+                        formControlName="firstname" [ngClass]="{'is-invalid' : submitted && f['firstname'].errors }">
+                        <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
+                            <div *ngIf="f['firstname'].errors?.['required']">FirstName is required</div>
+                            <div *ngIf="f['firstname'].errors?.['minlength']">FirstName should be  atleast 3 char long </div>
+                            <div *ngIf="f['firstname'].errors?.['maxlength']">FirstName should not be more than 10 char long </div>
+                        </div>
+                </div>
+
+
+                <div class="form-group col 2">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="please enter the last name " id="lastname" class="form-control"
+                        formControlName="lastname" [ngClass]="{'is-invalid' : submitted && f['lastname'].errors }">
+                        <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
+                            <div *ngIf="f['lastname'].errors?.['required']">LastName is required</div>
+                            <div *ngIf="f['lastname'].errors?.['minlength']">LastName should be  atleast 3 char long </div>
+                            <div *ngIf="f['lastname'].errors?.['maxlength']">LastName should not be more than 10 char long </div>
+                        </div>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="form-group col 2">
+                    <label>Date Of Birth</label>
+                    <input type="date" class="form-control" formControlName="dob" [ngClass]="{'is-invalid' : submitted && f['dob'].errors }">
+                    <div *ngIf="submitted && f['dob'].errors" class="invalid-feedback">
+                        <div *ngIf="f['dob'].errors?.['required']">Date of Birth is required</div>
+                        <div *ngIf="f['dob'].errors?.['pattern']">Date of Birth is valid format YYYY-MM-DD </div>
+                        
+                    </div>
+                </div>
+
+                <div class="form-group col 2">
+                    <label>Email</label>
+                    <input type="text" class="form-control" formControlName="emailid" [ngClass]="{'is-invalid' : submitted && f['dob'].errors }">
+                    <div *ngIf="submitted && f['emailid'].errors" class="invalid-feedback">
+                        <div *ngIf="f['emailid'].errors?.['required']">Email id is required</div>
+                       
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row mb-3">
+                <div class="form-group col 3">
+                    <label>Gender</label>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </div>
+
+
+                <div class="row mb-3">
+                    <div class="form-group col 3">
+                        <!-- <label>id</label> -->
+                        <input type="hidden" name="id" value="{{id}}"> 
+                        
+                    </div>
+                    </div>
+
+                <div class="form-group col 3">
+                    <label>Country</label>
+                   <select> <input type="text" class="form-control" formControlName="country">
+                    <option value="Afghanistan">Afghanistan</option>
+                    <option value="Albania">Albania</option>
+                    <option value="Algeria">Algeria</option>
+                    <option value="American Samoa">American Samoa</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Anguilla">Anguilla</option>
+                    <option value="Antartica">Antarctica</option>
+                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Armenia">Armenia</option>
+                    <option value="Aruba">Aruba</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Azerbaijan">Azerbaijan</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Bahrain">Bahrain</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Barbados">Barbados</option>
+                    <option value="Belarus">Belarus</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="Belize">Belize</option>
+                   </select>
+                </div>
+
+                <div class="form-group col 3">
+                     <label>State</label>
+                     <select> <input type="text" class="form-control" formControlName="state">
+                        <option value="state">state</option>
+                        <option value="Maharastra">Maharastra</option>
+                        <option value="MP">MP</option>
+                        <option value="UP">UP</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Goa">Maharastra</option>
+                        <option value="Goa">Dehli</option>
+
+
+                    </select>
+                </div>
+                <div class="form-group col 3">
+                    <label>City</label>
+                    <select><input type="text" class="form-control" formControlName="city">
+                        <option value="city">City</option>
+                        <option value="Achalpur">Achalpur</option>
+                        <option value="Ahiri">Ahiri</option>
+                        <option value="Ahmadnagar">Ahmadnagar</option>
+                        <option value="Ahmadpur">Ahmadpur</option>
+                        <option value="Airoli">Airoli</option>
+                        <option value="Ajra">Ajra</option>
+                        <option value="Akalkot">Akalkot</option>
+                        <option value="Akola">Akola</option>
+                        <option value="Akot">Akot</option>
+                        <option value="Alandi">Alandi</option>
+                    </select>
+               
+                </div>
+
+            </div>
+
+          
+
+               
+                <div class="row mb-3">
+                <div class="form-group col 5">
+                    <label>Address</label>
+                    <input type="text" class="form-control" formControlName="address">
+                </div>
+
+                <div class="form-group col 5">
+                    <label>Pincode</label>
+                    <input type="text" class="form-control" formControlName="pincode">
+                </div>
+            </div>
+
+            <div class="form group container mt-5">
+                <select  (change)="changefilter($event)" class="custom-select border-top-0 border-end-0 border-start-0">
+                  <option *ngFor="let i of columns" class="dropdown-item">{{i}}</option>
+                </select>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" class="border-0 shadow-sm p-3 mb-5 bg-white rounded" placeholder="Filter" id="filtervalue" name="filtervalue" #filtervalue>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-info" (click)="filter(filtervalue.value)">Search</button>
+              </div>
+
+
+
+
+            <div class="row mb-3">
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success me-3">{{buttonText}}</button>
+                    <button type="button" class="btn btn-danger" (click)="oncancel()">Cancel</button>
+                </div>
+            </div>
+
+
+
+
+        </form>
+    </div>
+</div>
+<div class="card">
+    <h5 class="card-header card-header-list-color"> Data</h5>
+    <div class="card-body">
+
+        <div class="form-row">
+            <div class="form-group col">
+                <table class="table table-striped">
+                    <tr>
+                       
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>DOB</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                    <tr *ngFor="let user of p1">
+                        
+                        <td>{{user.firstname}}</td>
+                        <td>{{user.lastname}}</td>
+                        <td>{{user.dob}}</td>
+                        <td>{{user.emailid}}</td>
+                        <td>
+                            <i class="fa fa-edit" style="color:green;"  (click)="Edit(user._id)"></i>
+                            <i class="fa fa-trash-o" style="color:red;" (click)="Delete(user._id)"></i>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
